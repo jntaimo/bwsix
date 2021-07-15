@@ -21,7 +21,7 @@ myAUV = AUV(latlon=(42.4, -171.3), heading=90, datum=datum)
 
 ### ################################
 #Set up the buoy field
-buoyField = BuoyField(datum,
+buoyField = BuoyField(datum,w
                       position_style='P')
 
 nGates = 10
