@@ -6,7 +6,7 @@ Created on Thu Mar  4 20:23:11 2021
 """
 import numpy as np
 import utm
-import random
+import random as rand
 
 from BWSI_Sensor import BWSI_Camera, BWSI_Laser
 
@@ -218,16 +218,16 @@ class AUV(object):
     def read_laser(self, buoy_field):
         g, r = self.__laser.get_visible_buoys(self.__position, self.__heading, buoy_field)
         
-        g = random.shuffle(g, list(g))
-        r = random.shuffle(r, list(r))
+        g = rand.sample(g, len(g))
+        r = rand.sample(r, len(r))
 
         return g, r
     
     def read_camera(self, buoy_field):
         g, r = self.__camera.get_visible_buoys(self.__position, self.__heading, buoy_field)
         
-        g = random.shuffle(g, list(g))
-        r = random.shuffle(r, list(r))
+        g = rand.sample(g, len(g))
+        r = rand.sample(r, len(r))
 
         return g, r
     
