@@ -97,9 +97,24 @@ fig, ax = plt.subplots(1,2)
 plt.title("Combined Channels")
 ax[0].imshow(img_thresh_hsv)
 ax[1].imshow(imrgb*np.expand_dims(img_thresh_hsv, axis=2))
-plt.show()
 
 # %% [markdown]
 # 13)
 
+# %%
+object_detection_surface = cv2.boxFilter(img_thresh_hsv.astype(int), -1, (50,50), normalize=False)
+plt.figure()
+plt.imshow(object_detection_surface)
+# %%
+thresh = 1000
+above_thresh = np.argwhere(object_detection_surface > thresh)
+
+# %%
+avg_y, avg_x= np.average(above_thresh, axis=0)
+# %%
+plt.figure()
+
+plt.imshow(imrgb)
+plt.plot(avg_x, avg_y, marker="o", color="red")
+plt.show()
 # %%

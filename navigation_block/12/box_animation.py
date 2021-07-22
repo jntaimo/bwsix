@@ -5,7 +5,7 @@ import matplotlib.cm as cm
 import cv2
 
 #PUT THE NAME OF YOUR IMAGE HERE
-img_rgb = cv2.imread("message_Matthew.jpg")
+img_rgb = cv2.imread("navigation_block/12/message_Matthew.jpg")
 
 # img_hsv = cv2.cvtColor(img_rgb, cv2.COLOR_RGB2HSV )
 img_hsv = img_rgb
@@ -62,5 +62,5 @@ def animate(i: int):
     update_plot(i, 2, 2, img_hsv, "Value filter size: ")
 
 if __name__ == "__main__":
-    ani = FuncAnimation(fig, animate, frames=100, interval=300)
+    ani = FuncAnimation(fig, animate, frames=100, interval=100)
     plt.show()
